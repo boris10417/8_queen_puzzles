@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           SizedBox(
-            width: MediaQuery.sizeOf(context).width / 3,
+            width:  MediaQuery.sizeOf(context).shortestSide / 2,
             child: AspectRatio(
               aspectRatio: 1,
               child: GridView.count(
