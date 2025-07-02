@@ -4,13 +4,13 @@ Solve problem in dart. And make UI in flutter to represent.
 
 [Demo video on YouTube](https://youtube.com/shorts/2aUiFo_UUKQ?si=4BqURHZURoC9DwaK)
 
-# problem
+## Problem Statement
 
 Find all n*n plates that can place n queens. Queens should not conlict with each other.
 
-# eight-queens-puzzle solvement:
+## Solution Approach
 
-## description:
+### Description:
 
 After thinking few days.I focus on point 1:"Each rows has one queen and only one queen".
 
@@ -24,7 +24,7 @@ By this point 1,I designed the following algorithm:
 3. Repeat until last row.You will get all possible plates. If one plate queen's amount < n,it will be abandoned.
 
 
-## conclusion:
+### conclusion:
 
 1.Since each row only place queens one time. Execution time can be reduced a lot compared to brute-force solution.
 
