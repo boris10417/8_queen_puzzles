@@ -41,35 +41,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            const Text('8 queen puzzles '),
-            if (layoutState == LayoutState.result)
-              Text('(n = $queenNumber has ${results.length} answers)'),
-          ],
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              const Text('8 queen puzzles '),
+              if (layoutState == LayoutState.result)
+                Text('(n = $queenNumber has ${results.length} answers)'),
+            ],
+          ),
         ),
+        body: switch (layoutState) {
+          LayoutState.setting => showSetting(),
+          LayoutState.result => ResultScreen(
+              queenNumber: queenNumber,
+              onBack: () => setState(reset),
+              results: results,
+            ),
+          LayoutState.test => TestScreen(
+              queenNumber: queenNumber,
+              onBack: () => setState(reset),
+              plate: plate,
+            ),
+        },
       ),
-      body: switch (layoutState) {
-        LayoutState.setting => showSetting(),
-        LayoutState.result => ResultScreen(
-            queenNumber: queenNumber,
-            onBack: () => setState(reset),
-            results: results,
-          ),
-        LayoutState.test => TestScreen(
-            queenNumber: queenNumber,
-            onBack: () => setState(reset),
-            onCellPressed: (index) {
-              setState(() {
-                plate.points[index].data =
-                    (plate.points[index].data == 'Q') ? '.' : 'Q';
-              });
-            },
-            plate: plate,
-          ),
-      },
     );
   }
 
