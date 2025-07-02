@@ -69,9 +69,11 @@ class Plate {
     var result = [
       for (var element in points)
         // 找到新皇后的位置，放入皇后
-        if (element.equal(platePoint)) platePoint 
+        if (element.equal(platePoint))
+          platePoint
         // 產生新棋盤
-        else element
+        else
+          element
     ];
     return Plate(result);
   }
@@ -150,7 +152,10 @@ class Plate {
     return false;
   }
 
- 
+  ///是否能合法運算
+  bool isValid(int n) {
+    return n * n == points.length;
+  }
 
   //轉換成答案陣列(合併版)
   List<String> generateAnswer2(int n) {
